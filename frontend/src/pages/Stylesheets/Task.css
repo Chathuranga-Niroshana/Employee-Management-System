@@ -1,0 +1,90 @@
+.taskContainer{
+    margin: 0;
+    padding: 0;
+}
+.firstTaskContent{
+    width: 100%;
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    padding: 10px 20px;
+    height: 200px;
+    box-shadow: 0 0 30px rgb(121, 117, 117);
+    margin-bottom: 30px;
+    border-radius: 10px;
+}
+.firstTaskContent div{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-around;
+}
+.secondTaskContainer{
+    width: 99%;
+}
+.secondTaskContainer table,thead{
+    border: 1px solid;
+}
+tr,td,th{
+    border: 1px solid;
+}
+th,td{
+    padding: 5px;
+    font-weight: 500;
+    font-size: 14px;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-left: -10px;
+    background-color: rgba(9, 239, 9, 0.589);
+  }
+  tr:hover{
+    background-color: rgb(170, 165, 165);
+    cursor: pointer;
+  }
+  td:hover{
+    font-weight: 600;
+
+  }
+  
+  th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #0b0a0a;
+    font-weight: bold;
+    color: #fff;
+  }
+  
+  .resources {
+    /* Nested table for resources section */
+    border: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .resources td {
+    /* Style nested table cells */
+    padding: 5px;
+    border: none;
+  }
+  
+  td.resources {
+    /* Style the parent cell for resources */
+    padding: 0;
+  }
+  
+  .review, .progress, .operations {
+    /* Style the last three columns */
+    text-align: center;
+  }
+  /* Employee list */
+  .employeeContainer div{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+  }

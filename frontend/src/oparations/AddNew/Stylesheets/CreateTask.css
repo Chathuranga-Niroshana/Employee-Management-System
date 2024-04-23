@@ -1,0 +1,97 @@
+.createTask {
+  height: 160vh;
+  width: 100%;
+}
+.createTask h1 {
+  font-size: 30px;
+  font-weight: 500;
+  cursor: pointer;
+  color: rgb(8, 28, 87);
+}
+.firstCreateTaskContainer {
+  display: flex;
+  margin-top: 20px;
+  padding: 20px;
+    box-shadow: 1px 2px 3px black;
+    width: 100%;
+  flex-direction: column;
+  border-radius: 10px;
+}
+.firstCreateTaskContainer .taskDateTimeContainer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+.taskDateTimeContainer div {
+  width: 100%;
+}
+
+.taskDateTimeContainer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+.taskDateTimeContainer div {
+  width: 100%;
+}
+
+.firstCreateTaskContainer div {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.firstCreateTaskContainer label {
+  margin-left: -20px;
+  font-weight: 500;
+  color: rgb(0, 0, 0);
+  margin-top: 25px;
+  margin-bottom: 10px;
+}
+.firstCreateTaskContainer input,
+textarea {
+  box-shadow: 1px 1px 3px;
+  padding: 8px;
+  border-radius: 7px;
+  border: none;
+  text-align: center;
+  width: 40%;
+}
+#createTaskBtn {
+  width: 300px;
+  margin: auto;
+  color: rgb(255, 255, 255);
+  border: none;
+  background-color: rgb(0, 0, 0);
+  border-radius: 5px;
+  transition: 0.5s ease-in-out;
+  padding: 15px;
+}
+#createTaskBtn:hover {
+  background-color: rgb(34, 33, 33);
+}
+
+div select {
+  border-radius: 4px;
+  text-align: center;
+  padding: 6px;
+  width: 250px;
+  border: none;
+  box-shadow: 1px 1px 3px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: #f1ecec;
+  cursor: pointer;
+}
+ div select option {
+  padding: 10px;
+  color: #1d1a1a;
+  overflow-x: scroll;
+  border: none;
+  font-weight: 500;
+}

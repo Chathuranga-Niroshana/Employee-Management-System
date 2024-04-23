@@ -1,0 +1,26 @@
+.ProfileDataField {
+  box-shadow: 1px 1px 10px;
+  border-radius: 8px;
+  background: #b4f43577;
+}
+.ProfileField{
+
+    border-bottom: 1px solid rgba(0, 0, 0, 0.134);
+}
+
+.ProfileField:hover {
+  background-color: rgba(147, 50, 50, 0.199);
+  cursor: pointer;
+}
+.ProfileDataField p:hover {
+  font-weight: 500;
+}
+.ProfileField label{
+    width: 50%;
+}
+.ProfileDataField p {
+    width: 50%;
+  }
+.ProfileDataField label:hover {
+    font-weight: 500;
+}

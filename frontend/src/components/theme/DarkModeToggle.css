@@ -1,0 +1,18 @@
+/* DarkModeToggle.css */
+
+.dark-mode-toggle button {
+  background-color: black;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 8px 12px;
+}
+
+.dark-mode-toggle button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode-toggle button:focus {
+  outline: none;
+}

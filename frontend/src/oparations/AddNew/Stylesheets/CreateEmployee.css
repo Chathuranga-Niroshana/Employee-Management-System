@@ -1,0 +1,26 @@
+.AddEmployeeContainer{
+    height: auto;
+    width: 100%;
+}
+
+.AddEmployeeContainer h1{
+    font-weight: 400;
+    font-size: 30px;
+    color: rgb(3, 3, 83);
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+
+.employeeInputField{
+    width: 60%;
+  border-radius: 10px;
+  padding: 30px;
+    box-shadow: 1px 2px 3px black;
+}
+
+.NewEmployeeBtn button,#createTaskBtn{
+    width: 250px;
+}
+#createTaskBtn{
+    margin-bottom: -70px;
+}

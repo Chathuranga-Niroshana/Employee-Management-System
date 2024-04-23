@@ -1,0 +1,113 @@
+.loginsignup {
+    width: 100%;
+    height: 150vh;
+    background-image: url(../../assests/images/bgimg.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:cover;
+    display: flex;
+    align-items: center;
+}
+
+.loginsignupContainer {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    height: 120vh;
+    border-radius: 20px;
+    padding: 10px;
+    margin-left: 400px;
+    box-shadow: 0px 0px 10px rgb(195, 190, 190);
+    background-color:rgba(68, 97, 97, 0.603);
+}
+.loginsignupContainer h1{
+    color: black;
+      font-weight: 500;
+      cursor: pointer;
+      margin-top: 30px;
+      font-size: 30px;
+      margin-bottom: 50px;
+      align-self: center;
+  }
+  .registerContainer{
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      justify-content: space-between;
+      padding: 20px;
+      width: 100%px;
+      height: 400px;
+  }
+  .inputField{
+    width: 100%;
+  }
+  .field{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 10px;
+      width: 100%;
+  }
+  .field label{
+      color: black;
+      font-weight: 500;
+      cursor: pointer;
+      padding: 3px 10px;
+  }
+  .field input{
+      color: black;
+      border: none;
+      border-radius: 5px;
+      background-color: transparent;
+      box-shadow: 0 0 10px rgb(170, 170, 189);
+      text-align: center;
+      width: 60%;
+  }
+  .btnField{
+      padding: 10px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      height: 150px;
+      margin-top: 40px
+  }
+  .btnField #loginMainBtn{
+      width: 80%;
+      padding: 10px;
+      color: rgb(255, 255, 255);
+      border: none;
+      background-color: rgb(0, 0, 0);
+      border-radius: 5px;
+      transition: 0.5s ease-in-out;
+  }
+  .btnField #loginMainBtn:hover{
+      background-color: rgb(14, 15, 15);
+  }
+  .btnField p{
+      color: rgb(0, 0, 0);
+      font-weight: 500;
+      font-size: 15px;
+  }
+  .btnField button{
+      width: 80%;
+      padding: 10px;
+      color: rgb(255, 255, 255);
+      font-weight: 600;
+      border: none;
+      background-color: rgb(0, 0, 0);
+      border-radius: 5px;
+      transition: 0.5s ease-in-out;
+  }
+  .btnField button:hover{
+      background-color: rgb(15, 15, 15);
+  }
+  
+  .field img{
+      border-radius: 50px;
+    width: 80px;
+    height: 80px;
+    margin-left: 100px;
+  
+  }
