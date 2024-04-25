@@ -10,18 +10,17 @@ const Footer = () => {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
             convallis libero in dui iaculis, sed consectetur velit ultricies.
             Phasellus molestie odio vel ligula ultrices, nec interdum justo
-            ullamcorper.ligula ultrices, nec interdum justo ullamcorper.justo
-            ullamcorper.
+            ullamcorper.ligula ultrices, nec interdum justo ullamcorper.
           </p>
         </div>
         <div className="footer__section">
           <h3>Quick Links</h3>
           <ul>
             <li>
-              <a href="/">Home</a>
+              <a href="/home">Home</a>
             </li>
             <li>
-              <a href="/#">Notification</a>
+              <a href="/message">Messages</a>
             </li>
             <li>
               <a href="/#">About</a>
@@ -34,13 +33,13 @@ const Footer = () => {
         <div className="footer__section">
           <h3>Contact Us</h3>
           <p>123 Kandy Road,</p>
-          <p>Colombo, Sri Lanka</p>
-          <p>Email: abcd@gmail.com</p>
-          <p>Phone: +94 123 456 789</p>
+          <p>Colombo, Sri Lanka.</p>
+          <p>abcd@gmail.com</p>
+          <p>+94 123 456 789</p>
         </div>
       </div>
       <div className="footer__bottom">
-        <p>&copy; 2024 Your Company. All rights reserved.</p>
+        <p>&copy; 2024 Angel (PVT) LTD. All rights reserved.</p>
       </div>
     </footer>
   );

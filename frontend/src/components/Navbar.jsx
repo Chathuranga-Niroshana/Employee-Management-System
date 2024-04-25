@@ -36,9 +36,9 @@ const Navbar = () => {
           <Link to="/message">
             <li>Message</li>
           </Link>
-          <Link to="/notification">
+          {/* <Link to="/notification">
             <li>Notifications</li>
-          </Link>
+          </Link> */}
 
           {localStorage.getItem("auth-token") ? (
             <li onClick={handleLogout}>Logout</li>

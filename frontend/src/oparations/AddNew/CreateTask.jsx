@@ -150,7 +150,7 @@ const CreateTask = () => {
             onChange={handleProjectChange}
           >
             {projects.map((project) => (
-              <option key={project.project_id} value={project.project_id}>
+              <option key={project.project_id}  value={project.project_id}>
                 {project.project_name}
               </option>
             ))}

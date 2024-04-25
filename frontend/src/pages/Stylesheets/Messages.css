@@ -1,0 +1,105 @@
+
+.messages-container {
+  width: 100%;
+}
+
+.messages-container h1 {
+  font-size: 30px;
+  font-weight: 500;
+  cursor: pointer;
+  color: rgb(8, 28, 87);
+  margin-bottom: 30px;
+}
+
+.messageFirstContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: auto; 
+}
+
+.message-input {
+  width: 80%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 20px;
+}
+
+.employee-select {
+  width: 510px;
+  margin-left: 30px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #a13636;
+  border-radius: 5px;
+  background-color: rgb(51, 255, 0);
+}
+
+.send-button {
+  width: 20%;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.messagesAll {
+  width: 100%;
+  padding: 20px;
+  min-height: 40vw;
+  border-radius: 30px;
+  box-shadow: 0px 0px 3px red;
+  margin-bottom: 20px;
+}
+
+.messageContentCOntainer {
+  display: flex;
+  align-items: flex-start;
+  cursor: pointer;
+  padding: 10px;
+  max-height: 300px;
+  overflow-y: scroll;
+}
+
+.messageContentCOntainer:hover {
+  background-color: #00000038;
+  border-radius: 10px;
+}
+
+.messageBox {
+  width: 100%;
+  padding: 30px;
+  display: none;
+  border-radius: 10px;
+}
+
+.message.sent {
+  text-align: right;
+  color: #052c56;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.message.received {
+  font-weight: 600;
+  text-align: left;
+  color: #3c0471;
+  font-size: 20px;
+}
+
+#dateAndTime {
+  font-size: 12px;
+  color: #000000;
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}

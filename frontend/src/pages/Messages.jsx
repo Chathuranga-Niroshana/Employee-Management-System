@@ -2,14 +2,18 @@ import React, { useContext, useEffect, useState } from "react";
 import io from "socket.io-client";
 import { EmsContext } from "../context/EmsContext";
 import axios from "axios";
+import "./Stylesheets/Messages.css";
+import moment from "moment";
 
 const socket = io("http://localhost:8080");
 
 const Messages = () => {
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState({});
   const [messageInput, setMessageInput] = useState("");
   const { user, employees } = useContext(EmsContext);
   const [formData, setFormData] = useState({ eid: "" });
+  const [selectedPersonId, setSelectedPersonId] = useState(null);
+  const [unreadMessages, setUnreadMessages] = useState({});
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -19,34 +23,50 @@ const Messages = () => {
     });
   };
 
-  // get messeges from db
+  // get messages from db
   useEffect(() => {
     axios
       .get("http://localhost:8080/message")
       .then((res) => {
-        const allMesseges = res.data;
-        const userMessages = allMesseges.filter(
-          (message) =>
-            message.sender === user.eid || message.receiver === user.eid
-        );
-        setMessages(userMessages);
+        const allMessages = res.data;
+        const groupedMessages = {};
+        allMessages.forEach((message) => {
+          const otherPersonId =
+            message.sender === user.eid ? message.receiver : message.sender;
+          if (!groupedMessages[otherPersonId]) {
+            groupedMessages[otherPersonId] = [];
+          }
+          groupedMessages[otherPersonId].push(message);
+        });
+        setMessages(groupedMessages);
       })
       .catch((error) => {
         console.error("Error getting messages:", error);
       });
-  }, [messages]);
+  }, [user.eid]);
 
-  // Listen for new messages
   useEffect(() => {
     socket.on("message", (message) => {
-      setMessages((prevMessages) => [...prevMessages, message]);
+      if (message.sender === user.eid || message.receiver === user.eid) {
+        setMessages((prevMessages) => {
+          const otherPersonId =
+            message.sender === user.eid ? message.receiver : message.sender;
+          setUnreadMessages((prevUnreadMessages) => ({
+            ...prevUnreadMessages,
+            [otherPersonId]: true,
+          }));
+          return {
+            ...prevMessages,
+            [otherPersonId]: [...(prevMessages[otherPersonId] || []), message],
+          };
+        });
+      }
     });
     return () => {
       socket.off("message");
     };
-  }, []);
+  }, [user.eid]);
 
-  // Function to send a message
   const sendMessage = () => {
     if (messageInput.trim() !== "") {
       const receiverId = formData.eid;
@@ -59,51 +79,97 @@ const Messages = () => {
     }
   };
 
-  return (
-    <div>
-      <h1>Messages</h1>
-      <textarea
-        value={messageInput}
-        placeholder="Type message here.."
-        onChange={(e) => setMessageInput(e.target.value)}
-        name=""
-        id=""
-        maxLength={255}
-        cols="30"
-        rows="5"
-      ></textarea>
-      <div>
-        TO:
-        <select
-          id="assignEmployeeId"
-          name="eid"
-          value={formData.eid}
-          onChange={handleInputChange}
-        >
-          {employees.map((emp) => (
-            <option key={emp.eid} value={emp.eid}>
-              {emp.eid} - {emp.employee_name} -{emp.email}
-            </option>
-          ))}
-        </select>
-      </div>
-      <button onClick={sendMessage}>Send</button>
+  const getEmployeeNameById = (empId) => {
+    const employee = employees.find((emp) => emp.eid === empId);
+    return employee ? employee.employee_name : "";
+  };
 
-      <section>
-        {messages.length === 0 ? (
-          <div>
-            <h1>You have no messages</h1>
-          </div>
-        ) : (
-          messages.map((message, index) => (
-            <div key={index}>
-              <h1>
-                {message.message_content} - {message.sender} -{message.receiver}
-              </h1>
+  const toggleMessages = (personId) => {
+    if (selectedPersonId === personId) {
+      setSelectedPersonId(null);
+      setUnreadMessages((prevUnreadMessages) => ({
+        ...prevUnreadMessages,
+        [personId]: false,
+      }));
+    } else {
+      setSelectedPersonId(personId);
+      setUnreadMessages((prevUnreadMessages) => ({
+        ...prevUnreadMessages,
+        [personId]: false,
+      }));
+    }
+  };
+
+  return (
+    <div className="messages-container">
+      <h1>Messages</h1>
+      <div className="messageFirstContainer">
+        <div>
+          <select
+            className="employee-select"
+            id="assignEmployeeId"
+            name="eid"
+            value={formData.eid}
+            onChange={handleInputChange}
+          >
+            {employees.map((emp) => (
+              <option key={emp.eid} value={emp.eid}>
+                {emp.eid} - {emp.employee_name} - {emp.email}
+              </option>
+            ))}
+          </select>
+        </div>
+        <textarea
+          className="message-input"
+          value={messageInput}
+          placeholder="Type message here.."
+          onChange={(e) => setMessageInput(e.target.value)}
+          name=""
+          id=""
+          maxLength={255}
+          cols="30"
+          rows="5"
+        ></textarea>
+
+        <button className="send-button" onClick={sendMessage}>
+          Send
+        </button>
+      </div>
+      <div className="messagesAll">
+        {Object.keys(messages).map((personId) => (
+          <div
+            className="messageContentCOntainer"
+            key={personId}
+            onClick={() => toggleMessages(personId)}
+          >
+            <h2
+              id="messagePerson"
+              style={{ color: unreadMessages[personId] ? "red" : "inherit" }}
+            >
+              {getEmployeeNameById(personId)}
+            </h2>
+            <div
+              className={`messageBox ${
+                selectedPersonId === personId ? "show" : "hide"
+              }`}
+            >
+              {messages[personId].map((message, index) => (
+                <div
+                  className={`message ${
+                    message.sender === user.eid ? "sent" : "received"
+                  }`}
+                  key={index}
+                >
+                  <p id="dateAndTime">
+                    {moment(message.date).format("DD/MM/YYYY  HH:MM")}
+                  </p>
+                  <p className="message-content">{message.message_content}</p>
+                </div>
+              ))}
             </div>
-          ))
-        )}
-      </section>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
