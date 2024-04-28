@@ -1,7 +1,10 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { EmsContext } from "../context/EmsContext";
-import moment from 'moment';
+import moment from "moment";
+import { FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import { faEdit, faTimesCircle } from "@fortawesome/free-solid-svg-icons";
+
 
 const Project = () => {
   const { projects, user } = useContext(EmsContext);
@@ -34,7 +37,9 @@ const Project = () => {
         <tbody>
           {projects.map((p) => (
             <tr key={p.project_id}>
+              <Link to={`readproject/${p.project_id}`}>
               <td>{p.project_id}</td>
+              </Link>
               <td>{p.project_name} </td>
               <td>{moment(p.start_date).format("DD/MM/YYYY")} </td>
               <td>{moment(p.end_date).format("DD/MM/YYYY")} </td>
@@ -43,8 +48,12 @@ const Project = () => {
               <td>{p.eid} </td>
               {user.position === "Admin" ? (
                 <td>
-                  <Link to={`updateproject/${p.project_id}`}>⏫</Link>
-                  <Link to={`deleteproject/${p.project_id}`}>❌</Link>
+                  <Link to={`updateproject/${p.project_id}`}>
+                    <FontAwesomeIcon className = "iconClass"  icon={faEdit} />
+                  </Link>
+                  <Link to={`deleteproject/${p.project_id}`}>
+                    <FontAwesomeIcon className = "iconClass redIcon"  icon={faTimesCircle} />
+                  </Link>
                 </td>
               ) : (
                 <></>

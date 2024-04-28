@@ -40,7 +40,7 @@ table {
     background-color: rgba(9, 239, 9, 0.589);
   }
   tr:hover{
-    background-color: rgb(170, 165, 165);
+    background-color: rgb(113, 70, 242);
     cursor: pointer;
   }
   td:hover{
@@ -87,4 +87,15 @@ table {
     display: flex;
     justify-content: space-between;
     margin: 20px;
+  }
+
+  .iconClass{
+    margin-right: 17px;
+  }
+
+  .iconClass:hover{
+    font-size: 16px;
+  }
+  .redIcon{
+    color: redd;
   }

@@ -111,3 +111,13 @@
     margin-left: 100px;
   
   }
+
+  @media(max-width:800px){
+    .loginsignup{
+        align-items: center;
+        justify-content: center;
+    }
+    .loginsignupContainer{
+        margin: 0;
+    }
+  }

@@ -75,3 +75,100 @@
     color: rgb(0, 0, 0);
     cursor: pointer;
 }
+
+
+@media(max-width:1024px){
+    .firstHomeContainer img{
+        width: 200px;
+    }   
+    .firstHomeContainer div p{
+        font-size: 20px;
+    }
+    .firstHomeContainer div h1{
+        font-size: 45px;
+        margin-bottom: 10px;
+    }
+    .firstHomeContainer div h2{
+        font-size: 35px;
+    }
+    .homeContainer #homePhar{
+        font-size: 19px;
+    }
+    p{
+        font-size: 18px;
+    }
+}
+@media(max-width:800px){
+    .firstHomeContainer img{
+        width: 150px;
+    }   
+    .firstHomeContainer div p{
+        font-size: 18px;
+    }
+    .firstHomeContainer div h1{
+        font-size: 35px;
+    }
+    .firstHomeContainer div h2{
+        font-size: 25px;
+    }
+    .homeContainer #homePhar{
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    p{
+        font-size: 18px;
+    }
+    .secondHomeContainer{
+        flex-direction: column;
+        width: 100%;
+    }
+ 
+    .secondHomeContainer img{
+        width: 100%;
+        border-radius: 10px;
+    } 
+    
+   
+}
+@media(max-width:500px){
+    .firstHomeContainer{
+        flex-direction: column;
+    }
+    .firstHomeContainer img{
+        width: 100%;
+        margin-top: 20px;
+    }
+    .firstHomeContainer div{
+        width: 100%;
+        margin: 0;
+    }   
+    .firstHomeContainer div p{
+        font-size: 17px;
+        margin: 0;
+    }
+    .firstHomeContainer div h1{
+        font-size: 35px;
+        margin: 0;
+        margin-bottom: 10px;
+    }
+    .firstHomeContainer div h2{
+        font-size: 24px;
+        margin-bottom: 10px;
+        margin-left: 10px;
+    }
+    .homeContainer #homePhar{
+       font-size: 16px;
+    }
+    p{
+        font-size: 16px;
+    }
+ 
+    .secondHomeContainer img{
+        width: 100%;
+        margin: 10px;
+        border-radius: 10px;
+    } 
+    
+   
+}

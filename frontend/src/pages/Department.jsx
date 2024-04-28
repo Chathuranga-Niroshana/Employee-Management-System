@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
 import { EmsContext } from "../context/EmsContext";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEdit, faTimesCircle } from "@fortawesome/free-solid-svg-icons";
 
 const Department = () => {
   const { department, user } = useContext(EmsContext);
@@ -33,8 +35,12 @@ const Department = () => {
               <td>{d.departmant_name} </td>
               {user.position === "Admin" ? (
                 <td>
-                  <Link to={`updatedepartment/${d.department_id}`}>⏫</Link>
-                  <Link to={`deletedepartment/${d.department_id}`}>❌</Link>
+                  <Link to={`updatedepartment/${d.department_id}`}>
+                    <FontAwesomeIcon className = "iconClass"  icon={faEdit} />
+                  </Link>
+                  <Link to={`deletedepartment/${d.department_id}`}>
+                    <FontAwesomeIcon className = "iconClass redIcon"  icon={faTimesCircle} />
+                  </Link>
                 </td>
               ) : (
                 <></>

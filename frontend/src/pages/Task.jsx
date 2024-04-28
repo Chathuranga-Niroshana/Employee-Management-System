@@ -2,7 +2,9 @@ import React, { useContext } from "react";
 import "./Stylesheets/Task.css";
 import { Link } from "react-router-dom";
 import { EmsContext } from "../context/EmsContext";
-import moment from 'moment';
+import moment from "moment";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEdit, faTimesCircle } from "@fortawesome/free-solid-svg-icons";
 
 const Task = () => {
   const { tasks, employees, user } = useContext(EmsContext);
@@ -42,9 +44,11 @@ const Task = () => {
           <tbody>
             {tasks.map((t, index) => (
               <tr key={t.task_id}>
-                <td>{index + 1} </td>
+                <Link to={`readtask/${t.task_id}`}>
+                  <td>{index + 1} </td>
+                </Link>
                 <td>{t.project_id} </td>
-                <td>{moment(t.date).format('DD/MM/YYYY')} </td>
+                <td>{moment(t.date).format("DD/MM/YYYY")} </td>
                 <td>{t.start_time} </td>
                 <td>{t.end_time} </td>
                 <td>{t.task_name} </td>
@@ -58,8 +62,15 @@ const Task = () => {
                   <></>
                 ) : (
                   <td>
-                    <Link to={`updatetask/${t.task_id}`}>⏫</Link>
-                    <Link to={`deletetask/${t.task_id}`}>❌</Link>
+                    <Link to={`updatetask/${t.task_id}`}>
+                      <FontAwesomeIcon className="iconClass" icon={faEdit} />
+                    </Link>
+                    <Link to={`deletetask/${t.task_id}`}>
+                      <FontAwesomeIcon
+                        className="iconClass redIcon"
+                        icon={faTimesCircle}
+                      />
+                    </Link>
                   </td>
                 )}
               </tr>

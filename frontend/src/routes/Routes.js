@@ -22,6 +22,9 @@ import DeleteDepartment from "../oparations/Delete/DeleteDepartment";
 import DeleteTask from "../oparations/Delete/DeleteTask";
 import Login from "../pages/Login";
 import Messages from "../pages/Messages";
+import ReadEmployee from "../oparations/Read/ReadEmployee";
+import ReadProject from "../oparations/Read/ReadProject";
+import ReadTask from "../oparations/Read/ReadTask";
 
 const routes = [
   { path: "/", component: Login, requiresAuth: false },
@@ -76,6 +79,18 @@ const routes = [
   },
   { path: "/task/deletetask/:id", component: DeleteTask, requiresAuth: true },
   { path: "/message", component: Messages, requiresAuth: true },
+
+  {
+    path: "/employee/reademployee/:id",
+    component: ReadEmployee,
+    requiresAuth: true,
+  },
+  {
+    path: "/project/readproject/:id",
+    component: ReadProject,
+    requiresAuth: true,
+  },
+  { path: "/task/readtask/:id", component: ReadTask, requiresAuth: true },
 ];
 
 export default routes;
